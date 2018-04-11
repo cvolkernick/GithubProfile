@@ -1,5 +1,7 @@
 package com.example.cvolk.githubprofile.clients;
 
+import com.example.cvolk.githubprofile.utils.HandlerUtils;
+
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
@@ -26,7 +28,7 @@ public class OkHttpHelper {
                 try {
                     Response response = client.newCall(request).execute();
 
-
+                    HandlerUtils.getDefault().sendMessage(response.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
