@@ -1,5 +1,6 @@
 package com.example.cvolk.githubprofile;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback 
                 okHttpHelper.executeSync();
                 break;
             case R.id.btnGetRepos:
+                Intent intent = new Intent(MainActivity.this, RepoActivity.class);
+                intent.putExtra("username", etUsername.getText().toString());
+                startActivity(intent);
                 break;
         }
     }
